@@ -18,7 +18,9 @@ return new class extends Migration
             $table->string('cuisine')->unique();
             $table->timestamps();
         });
+        Schema::rename('cuisine', 'cuisines');
     }
+
 
     /**
      * Reverse the migrations.

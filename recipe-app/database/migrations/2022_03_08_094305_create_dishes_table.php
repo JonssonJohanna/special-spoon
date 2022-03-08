@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('dishes', function (Blueprint $table) {
             $table->id();
             $table->string('dish')->unique();
-            $table->unsignedInteger('cuisine_id');
+            $table->unsignedInteger('cuisines_id');
             $table->string('diet');
             $table->timestamps();
         });
