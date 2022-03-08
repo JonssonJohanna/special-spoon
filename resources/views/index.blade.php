@@ -12,3 +12,22 @@
     </div>
     <button type="submit">Login</button>
 </form>
+
+<?php
+
+use Illuminate\Support\Facades\DB;
+
+$cuisines = DB::select('select * from cuisines');
+?>
+
+<h1>{{ $cuisines[0]->cuisine }}</h1>
+
+<form action="cuisine" method="post">
+    <label for="cuisine">Cuisines</label>
+    <select id="cuisine" name="cuisine">
+        @foreach ($cuisines as $cuisine)
+        <option value="{{ $cuisine->cuisine }}">{{ $cuisine->cuisine }}</option>
+        @endforeach
+    </select>
+    <button type="submit">Choose</button>
+</form>
