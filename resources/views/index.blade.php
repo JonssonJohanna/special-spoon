@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\DB;
 $cuisines = DB::select('select * from cuisines');
 ?>
 
-<h1>{{ $cuisines[0]->cuisine }}</h1>
+<h1>Randomize a recipe</h1>
 
 <form action="cuisine" method="post">
     <label for="cuisine">Cuisines</label>
@@ -29,5 +29,7 @@ $cuisines = DB::select('select * from cuisines');
         <option value="{{ $cuisine->cuisine }}">{{ $cuisine->cuisine }}</option>
         @endforeach
     </select>
-    <button type="submit">Choose</button>
+    <button type="submit">Randomize</button>
 </form>
+
+<img src="./images/plate.webp" alt="Plate">
