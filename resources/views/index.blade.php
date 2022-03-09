@@ -26,7 +26,7 @@ $cuisines = DB::select('select * from cuisines');
     <label for="cuisine">Cuisines</label>
     <select id="cuisine" name="cuisine">
         @foreach ($cuisines as $cuisine)
-        <option value="{{ $cuisine->cuisine }}">{{ $cuisine->cuisine }}</option>
+        <option name="cuisineId" value="{{ $cuisine->cuisine }}">{{ $cuisine->cuisine }}</option>
         @endforeach
     </select>
     <button type="submit">Randomize</button>
