@@ -11,11 +11,12 @@ $cuisines = DB::select('select * from cuisines');
 
 <h1>Randomize a recipe</h1>
 
-<form action="cuisine" method="post">
+<form action="/cuisine" method="post">
+    @csrf
     <label for="cuisine">Cuisines</label>
-    <select id="cuisine" name="cuisine">
+    <select id="cuisine" name="cuisineId">
         @foreach ($cuisines as $cuisine)
-        <option value="{{ $cuisine->cuisine }}">{{ $cuisine->cuisine }}</option>
+        <option value="{{ $cuisine->id }}">{{ $cuisine->cuisine }}</option>
         @endforeach
     </select>
     <button type="submit">Randomize</button>
