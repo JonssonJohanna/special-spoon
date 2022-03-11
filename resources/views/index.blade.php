@@ -1,3 +1,4 @@
+@include('header')
 @include('errors')
 
 <form action="login" method="post">
@@ -18,10 +19,18 @@
 use Illuminate\Support\Facades\DB;
 
 $cuisines = DB::select('select * from cuisines');
+$dish = DB::select('select * from dishes');
+
 
 ?>
 
-<h1>Randomize a recipe</h1>
+<h2>Randomize a recipe</h2>
+<!-- @foreach($dish as $key => $dishItem)
+<div>/cuisine/{{$$dishItem->dish}}</div> -->
+
+
+
+
 
 <form action="/cuisine" method="post">
     @csrf
@@ -33,6 +42,11 @@ $cuisines = DB::select('select * from cuisines');
     </select>
     <button type="submit">Randomize</button>
 </form>
+
+@if(isset($dish))
+{{$dish}}
+<div></div>
+@endif
 
 
 <img src="./images/plate.webp" alt="Plate">

@@ -1,3 +1,4 @@
+@include('header')
 <p>Hello, {{ $user->name }}! Do you want to <a href="logout">logout</a>?</p>
 
 @include('errors')
@@ -9,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 $cuisines = DB::select('select * from cuisines');
 ?>
 
-<h1>Randomize a recipe</h1>
+<h2>Randomize a recipe</h2>
 
 <form action="/cuisine" method="post">
     @csrf

@@ -28,11 +28,16 @@ class CuisineController extends Controller
 
 
         // vi får bara en tom array->kan inte hämta dish->kanske något med models OneHasMany
-        if ($dish = Dish::where('cuisines_id', $id)->inRandomOrder()->limit(1)->get()) {
-            return $dish;
+        if ($dish = Dish::where('cuisines_id', $id)->inRandomOrder()->limit(1)->first()) {
+
+
+            return view(
+                'index',
+                ['dish' => $dish]
+            );
         }
 
-        return back()->withErrors('Whoops! There are no recipes here yet. Maybe add one?');
-        return redirect('/');
+        // return back()->withErrors('Whoops! There are no recipes here yet. Maybe add one?');
+        // return redirect('/');
     }
 }

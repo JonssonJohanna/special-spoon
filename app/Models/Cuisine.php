@@ -14,4 +14,9 @@ class Cuisine extends Model
     ];
 
     public $timestamps = false;
+
+    public function dishes()
+    {
+        return $this->hasMany(Dish::class);
+    }
 }
