@@ -39,11 +39,12 @@ $cuisines = DB::select('select * from cuisines');
 </form>
 @endif
 
+
+
+
 <div>
+    <img class="container" src="/images/plate.webp" alt="Plate">
     @if(isset($dish))
-    <p>{{ $dish->dish }}</p>
+    <p class="text">{{ $dish->dish }}</p>
     @endif
 </div>
-
-
-<img src="/images/plate.webp" alt="Plate">

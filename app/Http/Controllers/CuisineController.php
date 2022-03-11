@@ -33,12 +33,12 @@ class CuisineController extends Controller
 
 
             // kolla hur vi returnar till både dashboard och index.
+
             return view('index', [
                 'dish' => $dish
             ]);
         }
 
         return back()->withErrors('Whoops! There are no recipes here yet. Maybe add one?');
-        // return redirect('/');
     }
 }
