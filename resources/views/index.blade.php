@@ -27,7 +27,7 @@ $cuisines = DB::select('select * from cuisines');
 <h2>Randomize a recipe</h2>
 
 @if($cuisines)
-<form action="/cuisine/{{ $cuisines[0]->id }}" method="post">
+<form action="/cuisine/{cuisineId}" method="post">
     @csrf
     <label for="cuisine">Cuisines</label>
     <select id="cuisine" name="cuisineId">

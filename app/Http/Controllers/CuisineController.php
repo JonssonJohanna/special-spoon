@@ -32,7 +32,7 @@ class CuisineController extends Controller
         if ($dish = Dish::where('cuisines_id', $id)->inRandomOrder()->limit(1)->first()) {
 
 
-
+            // kolla hur vi returnar till både dashboard och index.
             return view('index', [
                 'dish' => $dish
             ]);
