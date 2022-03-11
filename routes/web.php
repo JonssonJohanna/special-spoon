@@ -24,6 +24,6 @@ Route::post('login', LoginController::class);
 Route::get('logout', LogoutController::class);
 Route::get('dashboard', DashboardController::class)->middleware('auth');
 // Route::patch('cuisine/{cuisine}', CuisineController::class);
-Route::post('cuisine', CuisineController::class);
+Route::post('cuisine/{cuisineId}', CuisineController::class);
 // Route::post('tasks', CreateTaskController::class)->middleware('auth');
 // Route::patch('tasks/{task}/complete', CompleteTaskController::class)->middleware('auth');

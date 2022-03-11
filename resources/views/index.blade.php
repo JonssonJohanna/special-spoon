@@ -19,20 +19,15 @@
 use Illuminate\Support\Facades\DB;
 
 $cuisines = DB::select('select * from cuisines');
-$dish = DB::select('select * from dishes');
+// $dish = DB::select('select * from dishes');
 
 
 ?>
 
 <h2>Randomize a recipe</h2>
-<!-- @foreach($dish as $key => $dishItem)
-<div>/cuisine/{{$$dishItem->dish}}</div> -->
 
-
-
-
-
-<form action="/cuisine" method="post">
+@if($cuisines)
+<form action="/cuisine/{{ $cuisines[0]->id }}" method="post">
     @csrf
     <label for="cuisine">Cuisines</label>
     <select id="cuisine" name="cuisineId">
@@ -42,11 +37,13 @@ $dish = DB::select('select * from dishes');
     </select>
     <button type="submit">Randomize</button>
 </form>
-
-@if(isset($dish))
-{{$dish}}
-<div></div>
 @endif
 
+<div>
+    @if(isset($dish))
+    <p>{{ $dish->dish }}</p>
+    @endif
+</div>
 
-<img src="./images/plate.webp" alt="Plate">
+
+<img src="/images/plate.webp" alt="Plate">

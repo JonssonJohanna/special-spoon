@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cuisine;
 use App\Models\Dish;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -31,13 +32,13 @@ class CuisineController extends Controller
         if ($dish = Dish::where('cuisines_id', $id)->inRandomOrder()->limit(1)->first()) {
 
 
-            return view(
-                'index',
-                ['dish' => $dish]
-            );
+
+            return view('index', [
+                'dish' => $dish
+            ]);
         }
 
-        // return back()->withErrors('Whoops! There are no recipes here yet. Maybe add one?');
+        return back()->withErrors('Whoops! There are no recipes here yet. Maybe add one?');
         // return redirect('/');
     }
 }
