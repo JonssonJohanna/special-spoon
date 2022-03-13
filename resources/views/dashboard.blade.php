@@ -39,9 +39,18 @@ $cuisines = DB::select('select * from cuisines');
     </div>
 
     <div>
+        <label for="cuisines_id">Cuisines</label>
+        <select id="cuisines_id" name="cuisines_id">
+            @foreach ($cuisines as $cuisine)
+            <option value="{{ $cuisine->id }}">{{ $cuisine->cuisine }}</option>
+            @endforeach
+        </select>
+    </div>
+
+    <!-- <div>
         <label for="cuisines_id">Cuisine:</label>
         <input type="text" id="cuisines_id" name="cuisines_id">
-    </div>
+    </div> -->
 
     <div>
         <label for="diet">Vegeterian or vegan:</label>

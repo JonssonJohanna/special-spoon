@@ -18,7 +18,6 @@ class UploadController extends Controller
     {
         $this->validate($request, []);
 
-
         $dish = new dish();
         $dish->dish = $request->input('dish');
         $dish->cuisines_id = $request->input('cuisines_id');
