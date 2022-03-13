@@ -14,20 +14,18 @@
     <button type="submit">Login</button>
 </form>
 
+
+
 <?php
 
 use Illuminate\Support\Facades\DB;
 
 $cuisines = DB::select('select * from cuisines');
-// $dish = DB::select('select * from dishes');
-
-
 ?>
-
 <h2>Randomize a recipe</h2>
 
 @if($cuisines)
-<form action="/cuisine/{cuisineId}" method="post">
+<form action="{{ route('cuisine')}}" method="post">
     @csrf
     <label for="cuisine">Cuisines</label>
     <select id="cuisine" name="cuisineId">
@@ -38,10 +36,6 @@ $cuisines = DB::select('select * from cuisines');
     <button type="submit">Randomize</button>
 </form>
 @endif
-
-
-
-
 <div>
     <img class="container" src="/images/plate.webp" alt="Plate">
     @if(isset($dish))
