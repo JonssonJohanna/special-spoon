@@ -6,7 +6,7 @@
             <li><a href="register">Register here</a></li>
             @endif
             @if (Auth::user())
-            <li><a href="upload">Upload new dish</a></li>
+            <li><a href="#upload">Upload new dish</a></li>
             @endif
         </ul>
     </div>

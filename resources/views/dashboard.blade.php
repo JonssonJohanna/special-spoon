@@ -31,7 +31,7 @@ $cuisines = DB::select('select * from cuisines');
     @endif
 </div>
 <h2>Upload new dish</h2>
-<form action="upload" method="post">
+<form action="upload" method="post" id="upload">
     @csrf
     <div>
         <label for="dish">Dish:</label>

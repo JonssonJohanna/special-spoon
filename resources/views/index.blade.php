@@ -14,31 +14,6 @@
     <button type="submit">Login</button>
 </form>
 
-
-
-<?php
-
-use Illuminate\Support\Facades\DB;
-
-$cuisines = DB::select('select * from cuisines');
-?>
-<h2>Randomize a recipe</h2>
-
-@if($cuisines)
-<form action="{{ route('cuisine')}}" method="post">
-    @csrf
-    <label for="cuisine">Cuisines</label>
-    <select id="cuisine" name="cuisineId">
-        @foreach ($cuisines as $cuisine)
-        <option value="{{ $cuisine->id }}">{{ $cuisine->cuisine }}</option>
-        @endforeach
-    </select>
-    <button type="submit">Randomize</button>
-</form>
-@endif
 <div>
     <img class="container" src="/images/plate.webp" alt="Plate">
-    @if(isset($dish))
-    <p class="text">{{ $dish->dish }}</p>
-    @endif
 </div>
