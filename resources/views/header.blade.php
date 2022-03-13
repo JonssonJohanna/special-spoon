@@ -11,11 +11,8 @@
 
 <body>
     <h1>Dish randomizer</h1>
-    <nav>
-        @if (Auth::guest())
-        <a href="register">Register here</a>
-        @endif
-    </nav>
+
 </body>
 
 </html>
+@include('navbar')
