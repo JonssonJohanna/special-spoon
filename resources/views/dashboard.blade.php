@@ -4,13 +4,6 @@
 
 @include('errors')
 
-<?php
-
-use Illuminate\Support\Facades\DB;
-
-$cuisines = DB::select('select * from cuisines');
-?>
-
 <h2>Randomize a recipe</h2>
 @if($cuisines)
 <form action="{{ route('cuisine')}}" method="post">
