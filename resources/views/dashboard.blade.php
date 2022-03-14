@@ -19,8 +19,8 @@
 @endif
 <div>
     <img class="container" src="/images/plate.webp" alt="Plate">
-    @if(isset($dish))
-    <p class="text">{{ $dish->dish }}</p>
+    @if(session('dish'))
+    <p class="text">{{ session('dish')->dish }}</p>
     @endif
 </div>
 <h2>Upload new dish</h2>

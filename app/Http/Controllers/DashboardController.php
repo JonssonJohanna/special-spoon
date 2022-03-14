@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cuisine;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class DashboardController extends Controller
 {
@@ -13,7 +14,7 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
         $cuisines = Cuisine::all();
-
+        // Hur får jag med id för cuisine?
 
         return view('dashboard', [
             'user' => $user, 'cuisines' => $cuisines

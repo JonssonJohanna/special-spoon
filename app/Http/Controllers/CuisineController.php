@@ -7,6 +7,7 @@ use App\Models\Dish;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class CuisineController extends Controller
@@ -17,22 +18,16 @@ class CuisineController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+
     public function __invoke(Request $request)
     {
-        $cuisines = Cuisine::all();
-
         $id = $request->input('cuisineId');
+        $dish = Dish::where('cuisines_id', $id)->inRandomOrder()->limit(1)->first();
+        Log::info($request->all());
 
-        if ($dish = Dish::where('cuisines_id', $id)->inRandomOrder()->limit(1)->first()) {
-            # code...
-
-            $user = Auth::user();
-
-            // kolla hur vi returnar till både dashboard och index.
-
-            return view('dashboard', [
-                'dish' => $dish, 'cuisines' => $cuisines, 'user' => $user
-            ]);
+        if ($dish) {
+            return redirect('dashboard')->with('dish', $dish);
         }
 
         return back()->withErrors('Whoops! There are no recipes here yet. Maybe add one?');
