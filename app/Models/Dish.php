@@ -17,10 +17,6 @@ class Dish extends Model
 
     public $timestamps = false;
 
-    // public function Users()
-    // {
-    //     return $this->belongsToMany(User::class)->using(Favorite::class);
-    // }
     public function cuisine()
     {
         return $this->belongsTo(Cuisine::class);

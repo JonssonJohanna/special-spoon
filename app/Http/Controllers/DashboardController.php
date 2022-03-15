@@ -14,7 +14,6 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
         $cuisines = Cuisine::all();
-        // Hur får jag med id för cuisine?
 
         return view('dashboard', [
             'user' => $user, 'cuisines' => $cuisines
