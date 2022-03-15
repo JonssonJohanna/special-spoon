@@ -40,11 +40,6 @@
         </select>
     </div>
 
-    <!-- <div>
-        <label for="cuisines_id">Cuisine:</label>
-        <input type="text" id="cuisines_id" name="cuisines_id">
-    </div> -->
-
     <div>
         <label for="diet">Vegeterian or vegan:</label>
         <input type="text" id="diet" name="diet">

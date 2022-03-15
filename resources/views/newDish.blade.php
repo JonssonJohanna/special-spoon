@@ -1,4 +1,3 @@
-<!-- uploading new dishes -->
 <h2>Upload new dish</h2>
 <form action="upload" method="post">
     @csrf
