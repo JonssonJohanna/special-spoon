@@ -24,7 +24,6 @@ class CuisineController extends Controller
     {
         $id = $request->input('cuisineId');
         $dish = Dish::where('cuisines_id', $id)->inRandomOrder()->limit(1)->first();
-        Log::info($request->all());
 
         if ($dish) {
             return redirect('dashboard')->with('dish', $dish);

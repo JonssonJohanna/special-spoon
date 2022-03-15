@@ -12,17 +12,25 @@ use Tests\TestCase;
 
 class RandomTest extends TestCase
 {
-    public function test_get_random_dish()
+    use RefreshDatabase;
+
+    public function test_no_random_dish()
     {
-        // $response = $this->get('/');
+        $response = $this
+            ->followingRedirects()
+            ->post('cuisine', [
+                'dish' => '',
+            ]);
 
-        // $response->assertStatus(200);
-
-        // $user = new User();
-        // $user->name = 'Johanna';
-        // $user->email = 'j@hotmail.com';
-        // $user->password = Hash::make('123');
-        // $user->save();
+        $response->assertSeeText('Whoops! There are no recipes here yet. Maybe add one?');
+    }
+    public function test_dish_exists()
+    {
+        $user = new User();
+        $user->name = 'Johanna';
+        $user->email = 'j@hotmail.com';
+        $user->password = Hash::make('123');
+        $user->save();
 
         $dish = new Dish();
         $dish->dish = 'lijehe';
@@ -30,19 +38,15 @@ class RandomTest extends TestCase
         $dish->diet = 'Vegan';
         $dish->save();
 
-        // $this
-        //     ->actingAs($user)
-        //     ->post('cuisineId', [
-        //         'cuisines_id' => '4'
-        //     ]);
+        $this->assertDatabaseHas('dishes', ['cuisines_id' => 4]);
 
-        // $this->assertDatabaseHas('cuisineId', ['cuisines_id' => '4']);
+        $response = $this
+            ->followingRedirects()
+            ->actingAs($user)
+            ->post('cuisine', [
+                'cuisineId' => 4,
+            ]);
 
-
-        $response = $this->post('cuisine', ['cuisineId' => 4]);
-
-        $response->assertRedirect('dashboard')->with('dish', $dish);
-
-        // $response->assertSeeText(session('dish')->dish);
+        $response->assertSeeText($dish->dish);
     }
 }

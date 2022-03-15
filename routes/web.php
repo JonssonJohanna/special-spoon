@@ -25,13 +25,9 @@ Route::view('/', 'index')->name('login')->middleware('guest');
 Route::post('login', LoginController::class);
 Route::get('logout', LogoutController::class);
 Route::get('dashboard', DashboardController::class)->middleware('auth');
-// Route::patch('cuisine/{cuisine}', CuisineController::class);
 Route::post('cuisine', CuisineController::class)->name('cuisine');
-// Route::post('cuisine/{cuisineId}', CuisineController::class);
 Route::post('register', RegisterController::class)->name('register')->middleware('guest');
 Route::get('register', function () {
     return view('register');
 });
 Route::post('upload', UploadController::class)->middleware('auth');
-// Route::post('tasks', CreateTaskController::class)->middleware('auth');
-// Route::patch('tasks/{task}/complete', CompleteTaskController::class)->middleware('auth');

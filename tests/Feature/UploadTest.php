@@ -15,23 +15,23 @@ class UploadTest extends TestCase
 
     public function test_view_dish_form()
     {
-        // $user = new User();
-        // $user->name = 'Johanna';
-        // $user->email = 'j@hotmail.com';
-        // $user->password = Hash::make('123');
-        // $user->save();
+        $user = new User();
+        $user->name = 'Johanna';
+        $user->email = 'j@hotmail.com';
+        $user->password = Hash::make('123');
+        $user->save();
 
-        // $dish = new Dish();
-        // $dish->dish = 'lijehe';
-        // $dish->cuisines_id = 148;
-        // $dish->diet = 'Vegan';
-        // $dish->save();
+        $dish = new Dish();
+        $dish->dish = 'lijehe';
+        $dish->cuisines_id = 148;
+        $dish->diet = 'Vegan';
+        $dish->save();
 
-        // $response = $this
-        //     ->followingRedirects()->actingAs($user)->post('/upload', [
-        //         'dish' => $dish
-        //     ]);
+        $this
+            ->followingRedirects()->actingAs($user)->post('/upload', [
+                'dish' => $dish
+            ]);
 
-        // $response->assertStatus(200);
+        $this->assertDatabaseHas('dishes', ['dish' => 'lijehe']);
     }
 }
