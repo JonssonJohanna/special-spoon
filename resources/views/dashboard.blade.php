@@ -17,7 +17,7 @@
     <button type="submit">Randomize</button>
 </form>
 @endif
-<div>
+<div class="image-container">
     <img class="container" src="/images/plate.webp" alt="Plate">
     @if(session('dish'))
     <p class="text">{{ session('dish')->dish }}</p>

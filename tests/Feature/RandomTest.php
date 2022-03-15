@@ -25,6 +25,10 @@ class RandomTest extends TestCase
         // $user->save();
 
         $dish = new Dish();
+        $dish->dish = 'lijehe';
+        $dish->cuisines_id = 4;
+        $dish->diet = 'Vegan';
+        $dish->save();
 
         // $this
         //     ->actingAs($user)
@@ -35,7 +39,7 @@ class RandomTest extends TestCase
         // $this->assertDatabaseHas('cuisineId', ['cuisines_id' => '4']);
 
 
-        $response = $this->post('dashboard', ['cuisineId' => 4]);
+        $response = $this->post('cuisine', ['cuisineId' => 4]);
 
         $response->assertRedirect('dashboard')->with('dish', $dish);
 

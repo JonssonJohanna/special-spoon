@@ -14,6 +14,6 @@
     <button type="submit">Login</button>
 </form>
 
-<div>
+<div class="image-container">
     <img class="container" src="/images/plate.webp" alt="Plate">
 </div>
